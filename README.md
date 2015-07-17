@@ -1,7 +1,3 @@
-# fview-demo
+# test
 
-Work in progress. Simple app using famous-views. Mobile-first, end goal is fully responsive for all sizes.
-
-Currently best viewed on mobile or in mobile emulation:
-http://fview-demo.meteor.com/
-https://github.com/gadicc/fview-demo
+When you nagivate from the list items on the home page and back to the home page, the helper calls stack

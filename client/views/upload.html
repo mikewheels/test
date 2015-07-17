@@ -1,0 +1,27 @@
+<template name="upload">
+{{#Scrollview translate="[0, 10]" }}
+    {{>Surface template="uploadForm" size="[undefined, 650]"}}
+{{/Scrollview}}
+</template>
+
+<template name="uploadForm">
+  <div class="page">
+      <form class="new-listing" id="new-listing">
+          <div class="image-preview">
+              {{#with FS.GetFile "images" imageId}}
+                  <img src="{{this.url store='images'}}" alt="">
+              {{/with}}
+          </div>
+          <div class="field">
+              <input type="date" name="date" id="id-date" />
+          </div>
+          <div class="field">
+              <input type="text" name="title" id="id-title" placeholder="Title" />
+          </div>
+          <div class="field">
+              <input type="text" name="tags" id="id-tags" placeholder="Tags" />
+          </div>
+          <button type="submit" form="new-listing" class="btn">Post</button>
+      </form>
+  </div>
+</template>

@@ -1,0 +1,90 @@
+<head>
+  <!-- this is critical for mobile and emulation to look and work properly -->
+  <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no">
+</head>
+
+<body>
+</body>
+
+<template name="mainLayout">
+	{{#famousContext id="mainCtx"}}
+	  {{#HeaderFooterLayout size="[undefined,undefined]" headerSize="50" footerSize="50"}}
+	    {{#Modifier target="header" translate="[0,0,10]"}}
+	      {{> header}}
+	    {{/Modifier}}
+	    {{#Modifier target="content"}}
+	      {{> Template.dynamic template=main}}
+	    {{/Modifier}}
+	    {{#Modifier target="footer" translate="[0,0,10]"}}
+	      {{> footer}}
+	    {{/Modifier}}
+	  {{/HeaderFooterLayout}}
+	{{/famousContext}}
+</template>
+
+<template name="loginLayout">
+    {{#famousContext id="mainCtx"}}
+        {{#Surface}}
+          {{> Template.dynamic template=main}}
+        {{/Surface}}
+    {{/famousContext}}
+</template>
+
+<template name="header">
+    {{#Surface class="header"}}
+		<div id="header">
+		    {{> Template.dynamic template=headerText}}
+		</div>
+    {{/Surface}}
+    {{> Template.dynamic template=headerIcon}}
+    {{>Surface template="headerSearch" modifier="StateModifier" origin="[.5,.5]" size="[20,20]" translate="[-40,24, 11]" align="[1,0]"}}
+</template>
+
+<template name="footer">
+    {{#Surface class="footer"}}
+        <div id="footer">
+        </div>
+    {{/Surface}}
+    {{>Surface template="footerUpload" modifier="StateModifier" origin="[.5,.5]" size="[20,20]" align="[0.5,0.5]"}}
+</template>
+
+<template name="headerIconMenu">
+    {{>Surface template="headerMenu" modifier="StateModifier" origin="[.5,.5]" size="[20,20]" translate="[31,24, 11]"}}
+</template>
+
+<template name="headerIconBack">
+    {{>Surface template="headerBack" modifier="StateModifier" origin="[.5,.5]" size="[20,20]" translate="[31,24, 11]"}}
+</template>
+
+<template name="headerMenu">
+    <i id="headerIcon" class="fa fa-bars"></i>
+</template>
+
+<template name="headerBack">
+    <i id="headerIcon" class="fa {{#if iOS}}fa-angle-left{{else}}fa-arrow-left{{/if}}"></i>
+</template>
+
+<template name="headerSearch">
+    <i id="headerIcon" class="fa fa-search"></i>
+</template>
+
+<template name="mainHeader">
+    Logo
+</template>
+
+<template name="monthHeader">
+    <span>{{ monthName }}</span>
+</template>
+
+<template name="uploadHeader">
+    <span>Upload</span>
+</template>
+
+<template name="searchHeader">
+    <input type="text" placeholder="Search...">
+</template>
+
+<template name="footerUpload">
+    <i id="footerIcon" class="fa fa-cloud-upload"></i>
+    <input type="file" id="file-upload" accept="image/*" />
+</template>

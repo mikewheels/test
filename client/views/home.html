@@ -1,0 +1,27 @@
+<template name="home">
+    {{#Scrollview translate="[0, 10]" }}
+        {{#if isReady "months"}}
+	        {{#famousEach years}}
+	            {{#famousEach months }}
+	                {{>Surface template="listItemHome" size="[undefined, 90]" }}
+	            {{/famousEach}}
+	        {{/famousEach}}
+	    {{/if}}
+    {{/Scrollview}}
+</template>
+
+<template name="listItemHome">
+	<div class="panel">
+	   <div class="media-left">
+	        
+			  <img class="media-object" src="/landscape.jpg" alt="">
+	   </div>
+	   <div class="media-body">
+	     <h4 class="media-heading">{{ month }} {{ ../../year }}</h4>
+	   </div>
+	</div>
+</template>
+
+<template name="loading">
+    <p>Loading...</p>
+</template>
